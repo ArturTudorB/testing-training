@@ -13,7 +13,7 @@ module.exports = class CartItem {
     //region public methods
     constructor(articleId, name, quantity, price) {
             // These assignments use the setters defined below
-            this.articleId = articleId;
+            this.articleid = articleId;
             this.name = name;
             this.quantity = quantity;
             this.price = price;
