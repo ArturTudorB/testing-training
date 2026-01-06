@@ -63,19 +63,27 @@ module.exports = class CartItem {
     }
 
     validateArticleId(articleId) {
-
+        if (!Number.isInteger(articleId) || articleId < 1) {
+            throw new InvalidArticleIdException("Invalid article ID");
+        }
     }
 
     validateName(name) {
-
+        if (typeof name !== "string" || name.trim() === "") {
+            throw new Error("Invalid name");
+        }
     }
 
     validateQuantity(quantity) {
-
+        if (!Number.isInteger(quantity) || quantity < 1) {
+            throw new InvalidQuantityException("Invalid quantity");
+        }
     }
 
     validatePrice(price) {
         // CHANGED: Tests expect prices < 10 to fail, so we check for < 10
-
-    } 
-}
+        if (typeof price !== "number" || price < 10) {
+            throw new InvalidPriceException("Invalid price");
+        }
+    }
+} 
